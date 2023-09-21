@@ -15,7 +15,7 @@ def est_Pw(s):
     """
 
     ##### STUDENT CODE START #####
-
+    Pw = np.array([[-s/2,-s/2,0],[s/2,-s/2,0],[s/2,s/2,0],[-s/2,s/2,0]])
     ##### STUDENT CODE END #####
 
     return Pw
