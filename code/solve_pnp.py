@@ -14,12 +14,23 @@ def PnP(Pc, Pw, K=np.eye(3)):
 
     """
 
-    ##### STUDENT CODE START #####
-
     # Homography Approach
     # Following slides: Pose from Projective Transformation
-
-
-    ##### STUDENT CODE END #####
-
+    Pw = Pw[:,0:-1]
+    H = est_homography(Pw,Pc)
+    H = H/H[2,2]
+    K_inverse = np.linalg.inv(K)
+    KH = K_inverse @ H
+    h1 = KH[:,0]
+    h2 = KH[:,1]
+    h3 = KH[:,2]
+    USV = np.concatenate(([h1],[h2],[np.cross(h1,h2)]),axis=0)
+    USV = np.transpose(USV)
+    [U, S, Vt] = np.linalg.svd(USV)
+    UVt = np.eye(3)
+    UVt[-1,-1] = np.linalg.det(U @ Vt)
+    R = U @ UVt @ Vt
+    t = h3/np.linalg.norm(h1)
+    R = np.linalg.inv(R)
+    t = np.transpose(-R @ t)
     return R, t
