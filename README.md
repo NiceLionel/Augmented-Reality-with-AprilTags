@@ -13,7 +13,7 @@ In this project, I've also been provided with the four corner coordinates and th
 1. **Perspective-N-Point (PnP) with Coplanar Assumption**: By utilizing the 2D-3D correspondences, this method estimates the pose of the camera.
 2. **Perspective-Three-Point (P3P) & Procrustes Problem**: Another powerful technique that leverages minimalistic 2D-3D point correspondences to estimate the camera pose, followed by the Procrustes analysis for alignment.
 
-
+![](https://github.com/NiceLionel/Augmented-Reality-with-AprilTags/blob/main/code/VR_res.gif)
 
 ### Usage
 ```
